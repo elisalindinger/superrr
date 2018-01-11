@@ -160,7 +160,7 @@
                 .fromTo($header, 8, {height: '100vh', backgroundPosition: '0% 0%'},{height: '12vh', backgroundPosition: '0% 100%'},'transform')
                 .fromTo($headerSpacer, 8, {height: '100vh'}, {height: '12vh'},'transform')
                 .fromTo($logo, 8, {fontSize: '19vw', top:'40%'}, {fontSize: ref.getTargetFontsize(), top:'50%'},'transform')
-                .fromTo($logoInner, 8, {skewX: -15, scaleY: 2.6, paddingLeft:ref.getPaddingLeft(), ease:Sine.easeOut}, {skewX: -15, scaleY: 1, paddingLeft:'2vw', ease:Sine.easeOut},'transform')
+                .fromTo($logoInner, 8, {skewX: -15, scaleY: ref.getFontScale(), paddingLeft:ref.getPaddingLeft(), ease:Sine.easeOut}, {skewX: -15, scaleY: 1, paddingLeft:'2vw', ease:Sine.easeOut},'transform')
                 .set($logo, {className:'-=no-events'})
                 .set($headerWrap, {className:'+=no-cursor'})
                 .addPause();
@@ -170,6 +170,10 @@
                 //.addIndicators({name: "#trigger"}) // add indicators (requires plugin)
                 .addTo(sm_controller);
         }
+    };
+
+    Controller.prototype.getFontScale = function(){
+        return '2.6';
     };
 
     Controller.prototype.getTargetFontsize = function(){

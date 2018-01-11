@@ -520,6 +520,7 @@ window.displayMailChimpStatus = function (data) {
 
     // If error, add error class
     if (data.result === 'error') {
+        mcStatus.classList.remove('hidden');
         mcStatus.classList.remove('success-message');
         mcStatus.classList.add('error-message');
 
@@ -548,6 +549,7 @@ var submitMailChimpForm = function (form) {
 
     // Create a global variable for the status container
     window.mcStatus = form.querySelector('.mc-status');
+    mcStatus.classList.remove('hidden');
     window.mcStatus.innerHTML = 'subscribing...';
 
     // Insert script tag into the DOM (append to <head>)

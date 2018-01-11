@@ -14,3 +14,23 @@ ul.main-nav{
 .nav-toggle{
   display: none;
 }
+
+/*********************
+FOOTER STYLES
+*********************/
+
+.footer {
+  .newsletter-wrap{
+    form{
+      input[type="email"],input[type="text"]{
+        margin-bottom: 25px;
+      }
+      .button {
+        padding: 15px 50px 15px 50px;
+        &:hover, &:active, &:focus{
+          transform: scale(0.9);
+        }
+      }
+    }
+  }
+}
