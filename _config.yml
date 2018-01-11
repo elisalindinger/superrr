@@ -17,6 +17,7 @@
 title: "superrr.ninja"
 description: "..."
 lang: "de_DE"
+cachebust: "1.0"
 
 contact_email: mail@superrr.ninja
 superrr_twitter: "http://twitter.com"
@@ -25,9 +26,6 @@ superrr_insta: "http://instagram.com"
 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
-
 
 # Build settings
 highlighter: rouge

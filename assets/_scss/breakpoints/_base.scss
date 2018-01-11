@@ -32,7 +32,7 @@ html, body{
   pointer-events: none;
 }
 .no-cursor{
-  cursor: none;
+  cursor: default;
 }
 
 body {
@@ -518,23 +518,36 @@ CONTENT
   width: 100%;
 }
 
-.scroll-hint{
-  position: fixed;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%) rotate(-90deg);
-  z-index: 2;
-  pointer-events: none;
-  font-size: 1.5em;
-  transform-origin: left;
 
-  &.gone{
-    bottom: -700px;
+.scroll-hint-wrap{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 10;
+  top:0;
+
+  .scroll-hint{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-90deg);
+    z-index: 2;
+    pointer-events: none;
+    font-size: 1.5em;
+    transform-origin: left;
+
+    &.gone{
+      bottom: -150px;
+    }
+
+    @include transition(bottom .25s ease);
+
   }
 
-  @include transition(bottom .25s ease);
-
 }
+
 
 
 .intro-wrap{
