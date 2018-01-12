@@ -94,7 +94,36 @@
         ref.initBatches();
         ref.resize();
 
-        TweenMax.to($body,0.5,{opacity:1, ease:Sine.easeOut});
+
+        var $black = $logoInner.find('.black');
+        if($black.length > 0){
+            var $black_txt_array = $black.text().split('');
+            $black.empty();
+            for(var a=0; a< $black_txt_array.length; ++a){
+                var char = $black_txt_array[a];
+                $black.html($black.html()+'<span>' + char + '</span>');
+            }
+        }
+
+
+        var $white = $logoInner.find('.white');
+        if($white.length > 0){
+            var $white_txt_array = $white.text().split('');
+            $white.empty();
+            for(a=0; a< $white_txt_array.length; ++a){
+                char = $white_txt_array[a];
+                $white.html($white.html()+'<span>' + char + '</span>');
+            }
+        }
+
+        var $spansBlack = $($black.find('span'));
+        var $spansWhite = $($white.find('span'));
+        if($black.length > 0 && $white.length > 0){
+            var timeline = new TimelineMax({delay:0, paused:false})
+                .to($body, 0.5, {opacity:1, ease:Sine.easeOut})
+                .staggerFrom($spansBlack, 0.05, {opacity:0, ease:Sine.easeIn}, .1)
+                .staggerFrom($spansWhite, 0.05, {delay:.1, opacity:0, ease:Sine.easeIn}, .1);
+        }
 
     };
 
@@ -301,15 +330,16 @@
             var doc = batch.getSVGDocument();
 
             var $parent = $(batch).closest('.section');
-            var name = doc.getElementById("name");
-            var superrr = doc.getElementById("super");
+            if(doc){
+                var name = doc.getElementById("name");
+                var superrr = doc.getElementById("super");
 
-            if($parent.hasClass('left')){
-                TweenMax.to(name, 30, {rotation:"360", transformOrigin:"50% 50%", ease:Linear.easeNone, repeat:-1},'ani')
-            } else {
-                TweenMax.to(name, 30, {rotation:"-360", transformOrigin:"50% 50%", ease:Linear.easeNone, repeat:-1},'ani')
+                if($parent.hasClass('left')){
+                    TweenMax.to(name, 30, {rotation:"360", transformOrigin:"50% 50%", ease:Linear.easeNone, repeat:-1},'ani')
+                } else {
+                    TweenMax.to(name, 30, {rotation:"-360", transformOrigin:"50% 50%", ease:Linear.easeNone, repeat:-1},'ani')
+                }
             }
-
         }
     };
 
