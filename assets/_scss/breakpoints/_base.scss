@@ -242,7 +242,7 @@ a, p, li {
   font-size: 1.5rem;
 }
 blockquote{
-  font-size: 1.75rem;
+  font-size: 2.75rem;
   font-family: $font-paelzer-grot-medium;
   color: $secondary-color;
   margin: 20px;
@@ -440,11 +440,15 @@ ul.main-nav{
       font-size: 1.75rem;
       font-weight: bold;
       padding: 4px 10px 0 10px;
+      &:hover{
+        background-color: $link-background-hover;
+      }
+
     }
 
     &.current{
       a{
-        background-color: $third-color;
+        background-color: $link-background-hover;
       }
     }
 
@@ -527,6 +531,7 @@ CONTENT
   pointer-events: none;
   z-index: 10;
   top:0;
+  left:0;
 
   .scroll-hint{
     position: absolute;
@@ -539,13 +544,22 @@ CONTENT
     transform-origin: left;
 
     &.gone{
-      bottom: -150px;
+      bottom: -150px !important;
     }
 
     @include transition(bottom .25s ease);
 
   }
 
+}
+body{
+  &.safari.mobile{
+    .scroll-hint-wrap{
+      .scroll-hint{
+       /* bottom: 60px; */
+      }
+    }
+  }
 }
 
 
@@ -558,7 +572,15 @@ CONTENT
   text-align: center;
 }
 .intro-text{
-  font-size: 1.25em !important;
+  font-size: 1.25rem !important;
+  a{
+    @include transition(background-color .2s ease);
+    background-color: $link-background-hover;
+    &:hover{
+      background-color: $third-color;
+      @include custom-cursor-hover();
+    }
+  }
 }
 .more-btn{
   font-size: 2.25rem !important;
@@ -704,6 +726,7 @@ FOOTER STYLES
         text-align: center;
         font-size: 2.25em;
         text-transform: uppercase;
+        margin-bottom: 10px;
 
         &:focus{
           outline: none;
@@ -745,10 +768,10 @@ FOOTER STYLES
         background-color: $secondary-color;
         border: 1px solid $secondary-color;
         display: inline-block;
-        font-size: 2.25em;
+        font-size: 1.75em;
         line-height: 1.2;
         padding: 10px 30px 10px 30px;
-        width: 90%;
+        width: auto;
         outline: none;
         transform: scale(1);
 
@@ -778,6 +801,9 @@ FOOTER STYLES
     a{
       font-size: 1.75rem;
       line-height: 1.5em;
+      &:hover{
+        background-color: $link-background-hover;
+      }
     }
 
     .touch{

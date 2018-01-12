@@ -22,7 +22,10 @@
         //Logger.setLevel(Logger.OFF);
 
         var browser = ref.getBrowser();
-        $('body').addClass(browser.name.toLowerCase()).addClass('version-' + browser.version.toLowerCase());
+        var name = browser.name.toLowerCase();
+        if(ref.isMobileDevice()) name+="-mobile";
+        $('body').addClass(name).addClass('version-' + browser.version.toLowerCase());
+
 
         isFrontpage = window.is_frontpage;
 
@@ -162,7 +165,7 @@
                 .fromTo($headerSpacer, 8, {height: '100vh'}, {height: '12vh'},'transform')
                 .fromTo($scrollHintWrap, 8, {height: '100vh'}, {height: '12vh'},'transform')
                 .fromTo($logo, 8, {fontSize: '19vw', top:'40%'}, {fontSize: ref.getTargetFontsize(), top:'50%'},'transform')
-                .fromTo($logoInner, 8, {skewX: -15, scaleY: ref.getFontScale(), paddingLeft:ref.getPaddingLeft(), ease:Sine.easeOut}, {skewX: -15, scaleY: 1, paddingLeft:'2vw', ease:Sine.easeOut},'transform')
+                .fromTo($logoInner, 8, {skewX: ref.getTargetSkew(), scaleY: ref.getFontScale(), paddingLeft:ref.getPaddingLeft(), ease:Sine.easeOut}, {skewX: -15, scaleY: 1, paddingLeft:'2vw', ease:Sine.easeOut},'transform')
                 .set($logo, {className:'-=no-events'})
                 .set($headerWrap, {className:'+=no-cursor'})
                 .addPause();
@@ -174,35 +177,83 @@
         }
     };
 
+    Controller.prototype.getTargetSkew = function(){
+        if(ref.viewport().width < 414){
+            return -10;
+        } else if(ref.viewport().width >= 414 && ref.viewport().width < 768) {
+            return -8;
+        } else if(ref.viewport().width >= 768 && ref.viewport().width < 1024) {
+            return -8;
+        } else if(ref.viewport().width >= 1024 && ref.viewport().width < 1200) {
+            return -8;
+        } else if(ref.viewport().width >= 1200 && ref.viewport().width < 1400) {
+            return -15;
+        } else if(ref.viewport().width >= 1400 && ref.viewport().width < 1600) {
+            return -15;
+        } else if(ref.viewport().width >= 1600 && ref.viewport().width < 1920){
+            return -13;
+        } else {
+            return -15;
+        }
+    };
+
     Controller.prototype.getFontScale = function(){
-        return '2.6';
+        if(ref.viewport().width < 414){
+            return '6';
+        } else if(ref.viewport().width >= 414 && ref.viewport().width < 768) {
+            return '8';
+        } else if(ref.viewport().width >= 768 && ref.viewport().width < 1024) {
+            return '7';
+        } else if(ref.viewport().width >= 1024 && ref.viewport().width < 1200) {
+            return '3.75';
+        } else if(ref.viewport().width >= 1200 && ref.viewport().width < 1400) {
+            return '4';
+        } else if(ref.viewport().width >= 1400 && ref.viewport().width < 1600) {
+            return '3.5';
+        } else if(ref.viewport().width >= 1600 && ref.viewport().width < 1920){
+            return '2.5';
+        } else {
+            return '2.75';
+        }
     };
 
     Controller.prototype.getTargetFontsize = function(){
-        if(ref.viewport().width <= 414){
+        if(ref.viewport().width < 414){
             return '12vw';
-        } else if(ref.viewport().width > 414 && ref.viewport().width <= 768) {
+        } else if(ref.viewport().width >= 414 && ref.viewport().width < 768) {
             return '8vw';
-        } else if(ref.viewport().width > 768 && ref.viewport().width <= 1200) {
+        } else if(ref.viewport().width >= 768 && ref.viewport().width < 1024) {
             return '7vw';
-        } else if(ref.viewport().width > 1200 && ref.viewport().width <= 1400) {
+        } else if(ref.viewport().width >= 1024 && ref.viewport().width < 1200) {
+            return '7vw';
+        } else if(ref.viewport().width >= 1200 && ref.viewport().width < 1400) {
             return '6vw';
-        } else if(ref.viewport().width > 1400) {
+        } else if(ref.viewport().width >= 1400 && ref.viewport().width < 1600) {
+            return '4vw';
+        } else if(ref.viewport().width >= 1600 && ref.viewport().width < 1920){
+            return '4vw';
+        } else {
             return '4vw';
         }
     };
 
     Controller.prototype.getPaddingLeft = function(){
-        if(ref.viewport().width <= 414){
+        if(ref.viewport().width < 414){
+            return '12vw';
+        } else if(ref.viewport().width >= 414 && ref.viewport().width < 768) {
+            return '14vw';
+        } else if(ref.viewport().width >= 768 && ref.viewport().width < 1024) {
+            return '10vw';
+        } else if(ref.viewport().width >= 1024 && ref.viewport().width < 1200) {
             return '4vw';
-        } else if(ref.viewport().width > 414 && ref.viewport().width <= 768) {
-            return '4vw';
-        } else if(ref.viewport().width > 768 && ref.viewport().width <= 1200) {
-            return '3vw';
-        } else if(ref.viewport().width > 1200 && ref.viewport().width <= 1400) {
-            return '4vw';
-        } else if(ref.viewport().width > 1400) {
-            return '4vw';
+        } else if(ref.viewport().width >= 1200 && ref.viewport().width < 1400) {
+            return '7vw';
+        } else if(ref.viewport().width >= 1400 && ref.viewport().width < 1600) {
+            return '6vw';
+        } else if(ref.viewport().width >= 1600 && ref.viewport().width < 1920){
+            return '6vw';
+        } else {
+            return '5.5vw';
         }
     };
 
@@ -419,6 +470,14 @@
             version: M[1]
         };
     };
+
+    /*********************
+     is it mobile?
+     *********************/
+    Controller.prototype.isMobileDevice = function()
+    {
+        return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+    }
 
     window.Controller = Controller;
 

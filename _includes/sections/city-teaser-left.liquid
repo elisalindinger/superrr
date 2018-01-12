@@ -2,7 +2,7 @@
     <div class="section left city-teaser col-xs-24 background-image background-{{ include.index }}">
         <div class="row city-teaser-wrap">
             <div class="col-xs-24 col-md-11 col-md-push-1">
-                <div class="batch-wrap">
+                <div class="batch-wrap  fade-in">
                     <a href="{{ city.link }}" class="batch-inner">
                         <object class="img-responsive batch-svg" data="" data-src="{{ site.baseurl }}{{ include.img }}" type="image/svg+xml" ></object>
                     </a>
@@ -10,12 +10,12 @@
             </div>
             <div class="col-xs-24 col-md-11 col-md-push-1">
                 <div class="event-info-wrap">
-                    <div class="event-intro font-paelzer-grot-medium">next meetup</div>
-                    <div class="event-date font-paelzer-grot-medium">
+                    <div class="event-intro font-paelzer-grot-medium  fade-in">next meetup</div>
+                    <div class="event-date font-paelzer-grot-medium  fade-in">
                         {{ include.event_date }}<br/>{{ include.event_year }}
                     </div>
-                    <div class="event-tags">{{ include.tags }}</div>
-                    <a class="event-link more-btn" href="{{ city.link }}">
+                    <div class="event-tags  fade-in">{{ include.tags }}</div>
+                    <a class="event-link more-btn  fade-in" href="{{ city.link }}">
                         <span class="more-btn-inner"><span>Rrread more!</span></span>
                     </a>
                 </div>
