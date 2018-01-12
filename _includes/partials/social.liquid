@@ -11,9 +11,9 @@
                 <span>GET IN TOUCH</span><br/>
             </div>
             <ul class="fade-in">
-                <li><a class="bg-hover" target="_blank" href="{{ site.super_twitter }}">TWITTER</a></li>
-                <li><a class="bg-hover" target="_blank"href="{{ site.super_insta }}">INSTAGRAM</a></li>
-                <li><a class="bg-hover" target="_blank" href="{{ site.super_facebook}}">FACEBOOK</a></li>
+                {% if site.superrr_twitter != "" %}<li><a class="bg-hover" target="_blank" href="{{ site.superrr_twitter }}">TWITTER</a></li>{% endif %}
+                {% if site.superrr_insta != "" %}<li><a class="bg-hover" target="_blank"href="{{ site.superrr_insta }}">INSTAGRAM</a></li>{% endif %}
+                {% if site.superrr_facebook != "" %}<li><a class="bg-hover" target="_blank" href="{{ site.superrr_facebook}}">FACEBOOK</a></li>{% endif %}
                 <li><a class="bg-hover" href="mailto:{{ site.contact_email }}">E-MAIL</a></li>
             </ul>
         </div>

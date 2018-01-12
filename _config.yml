@@ -17,12 +17,12 @@
 title: "superrr.ninja"
 description: "..."
 lang: "de_DE"
-cachebust: "1.0"
+cachebust: "1.1"
 
 contact_email: mail@superrr.ninja
-superrr_twitter: "http://twitter.com"
-superrr_facebook: "http://facebook.com"
-superrr_insta: "http://instagram.com"
+superrr_twitter: "http://twitter.com/superrr"
+superrr_facebook: "http://facebook.com/superrr"
+superrr_insta: "http://instagram.com/superrr"
 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
