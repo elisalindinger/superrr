@@ -15,9 +15,9 @@
 # in the templates via {{ site.myvariable }}.
 
 title: "superrr.ninja"
-description: "..."
+description: "Superrr is a community of women* in the arts, in science, tech, journalism, activism and more."
 lang: "de_DE"
-cachebust: "1.1"
+cachebust: "1.2"
 
 contact_email: mail@superrr.ninja
 superrr_twitter: "http://twitter.com/superrr"

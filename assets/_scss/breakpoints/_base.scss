@@ -235,7 +235,6 @@ h5, .h5 {
 
 
 /*********************
-WRAPPER STYLES
 *********************/
 
 a, p, li {
@@ -461,7 +460,7 @@ a.bg-hover{
   background-color: transparent;
 
   &:hover{
-    background-color: $third-color;
+    background-color: $link-background-hover;
     @include custom-cursor-hover();
   }
 }
