@@ -121,8 +121,8 @@
         if($black.length > 0 && $white.length > 0){
             var timeline = new TimelineMax({delay:0, paused:false})
                 .to($body, 0.5, {opacity:1, ease:Sine.easeOut})
-                .staggerFrom($spansBlack, 0.05, {opacity:0, ease:Sine.easeIn}, .1)
-                .staggerFrom($spansWhite, 0.05, {delay:.1, opacity:0, ease:Sine.easeIn}, .1);
+                .staggerFrom($spansBlack, 0.05, {delay:.25,opacity:0, ease:Sine.easeIn}, .25)
+                .staggerFrom($spansWhite, 0.05, {delay:.25, opacity:0, ease:Sine.easeIn}, .25);
         }
 
     };
