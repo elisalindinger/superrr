@@ -19,13 +19,14 @@ description: "Superrr is a community of women* in the arts, in science, tech, jo
 lang: "de_DE"
 cachebust: "1.2"
 
-contact_email: mail@superrr.ninja
-superrr_twitter: "http://twitter.com/superrr"
-superrr_facebook: "http://facebook.com/superrr"
-superrr_insta: "http://instagram.com/superrr"
+contact_email: superrr.berlin@gmail.com
+superrr_twitter: "http://twitter.com/superrrnetwork"
+superrr_facebook: ""
+superrr_insta: "https://www.instagram.com/superrrnetwork/"
 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
+future: true
 
 # Build settings
 highlighter: rouge
@@ -47,6 +48,7 @@ collections:
     cities:
         output: true
         permalink: /city/:path/
+
 
 
 # Assets

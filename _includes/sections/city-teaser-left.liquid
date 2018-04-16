@@ -10,14 +10,16 @@
             </div>
             <div class="col-xs-24 col-md-11 col-md-push-1">
                 <div class="event-info-wrap">
-                    <div class="event-intro font-paelzer-grot-medium  fade-in">next meetup</div>
+                    <div class="event-intro font-paelzer-grot-medium  fade-in">{{ include.city }}</div>
                     <div class="event-date font-paelzer-grot-medium  fade-in">
                         {{ include.event_date }}<br/>{{ include.event_year }}
                     </div>
                     <div class="event-tags  fade-in">{{ include.tags }}</div>
-                    <a class="event-link more-btn  fade-in" href="{{ city.link }}">
-                        <span class="more-btn-inner"><span>Rrread more!</span></span>
-                    </a>
+                    {% if include.deeplink != "false" %}
+                        <a class="event-link more-btn  fade-in" href="{{ city.link }}">
+                            <span class="more-btn-inner"><span>Rrread more!</span></span>
+                        </a>
+                    {% endif %}
                 </div>
             </div>
         </div>
